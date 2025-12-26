@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Détails Action</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: 50px auto; }
+        .detail { margin: 15px 0; padding: 10px; background: #f8f9fa; border-left: 4px solid #007bff; }
+        .detail strong { display: inline-block; width: 150px; }
+    </style>
+</head>
+<body>
+    <h1>Détails de l'Action</h1>
+    <div class="detail">
+        <strong>ID:</strong> <span th:text="${action.id}"></span>
+    </div>
+    <div class="detail">
+        <strong>Titre:</strong> <span th:text="${action.titre}"></span>
+    </div>
+    <div class="detail">
+        <strong>Date:</strong> <span th:text="${#dates.format(action.date, 'dd/MM/yyyy')}"></span>
+    </div>
+    <div class="detail">
+        <strong>Description:</strong> <span th:text="${action.description}"></span>
+    </div>
+    <div class="detail">
+        <strong>Montant:</strong> <span th:text="${action.montant}"></span>
+    </div>
+    <div class="detail">
+        <strong>Status:</strong> <span th:text="${action.status}"></span>
+    </div>
+    <br/>
+    <a href="/actions">Retour à la liste</a>
+</body>
+</html>

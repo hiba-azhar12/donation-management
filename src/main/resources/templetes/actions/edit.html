@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier Action</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; }
+        form div { margin: 15px 0; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input, textarea, select { width: 100%; padding: 8px; }
+        button { padding: 10px 20px; background: #ffc107; color: white; border: none; cursor: pointer; }
+        button:hover { background: #e0a800; }
+    </style>
+</head>
+<body>
+    <h1>Modifier Action</h1>
+    <form th:action="@{/actions/update}" th:object="${action}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Titre:</label>
+            <input type="text" th:field="*{titre}" required/>
+        </div>
+        <div>
+            <label>Date:</label>
+            <input type="date" th:field="*{date}" required/>
+        </div>
+        <div>
+            <label>Description:</label>
+            <textarea th:field="*{description}" rows="4"></textarea>
+        </div>
+        <div>
+            <label>Montant:</label>
+            <input type="number" th:field="*{montant}" required/>
+        </div>
+        <div>
+            <label>Status:</label>
+            <select th:field="*{status}">
+                <option value="PREPARATION">PREPARATION</option>
+                <option value="OUVERTE">OUVERTE</option>
+                <option value="SUSPENDUE">SUSPENDUE</option>
+            </select>
+        </div>
+        <button type="submit">Modifier</button>
+        <a href="/actions">Annuler</a>
+    </form>
+</body>
+</html>
